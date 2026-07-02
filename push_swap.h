@@ -1,0 +1,48 @@
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include <stdio.h>
+# include <stddef.h>
+# include <limits.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+typedef struct s_flag
+{
+	char	*name;
+	int		value;
+}	t_flag;
+
+typedef struct s_stack
+{
+	int				value;
+	int				index;
+	struct s_stack	*next;
+}	t_stack;
+
+/* --- utils.c --- */
+size_t	ft_strlen(const char *s1);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	ft_error(int *arr);
+
+/* --- split.c --- */
+void	ft_free_split(char **split);
+char	**ft_split(char const *s, char c);
+
+/* --- parsing.c --- */
+int		is_flag(char *argv, int *strat, int *bench);
+int		ft_checkdig(const char *str, int sign, int *result);
+int		ft_isnumber(const char *str, int *result);
+int		ft_isduplicate(int *arr, int curr_size, int num);
+
+/* --- stack.c --- */
+t_stack	*ft_new_node(int value);
+void	ft_add_back(t_stack **stack, t_stack *new_node);
+void	ft_free_stack(t_stack **stack);
+t_stack	*ft_init_stack(int *arr, int size);
+
+/* --- index.c --- */
+void	ft_assign_index(t_stack *stack);
+void	debug_print_stack(t_stack *stack, char *name);
+
+#endif

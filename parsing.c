@@ -1,0 +1,85 @@
+#include "push_swap.h"
+
+int	is_flag(char *argv, int *strat, int *bench)
+{
+	size_t				i;
+	static const t_flag	lut[] = {
+	{"--simple", 1},
+	{"--medium", 2},
+	{"--complex", 3},
+	{"--adaptive", 4},
+	{NULL, 0}
+	};
+
+	i = 0;
+	if (ft_strncmp(argv, "--bench", 8) == 0)
+	{
+		*bench = 1;
+		return (1);
+	}
+	while (lut[i].name != NULL)
+	{
+		if (ft_strncmp(argv, lut[i].name, ft_strlen(lut[i].name) + 1) == 0)
+		{
+			*strat = lut[i].value;
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	ft_checkdig(const char *str, int sign, int *result)
+{
+	int		i;
+	long	res;
+
+	i = 0;
+	res = 0;
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		res = (res * 10) + (str[i] - '0');
+		if ((sign == 1 && res > INT_MAX)
+			|| (sign == -1 && res > (long)INT_MAX + 1))
+			return (0);
+		i++;
+	}
+	*result = (int)(res * sign);
+	return (1);
+}
+
+int	ft_isnumber(const char *str, int *result)
+{
+	int	i;
+	int	sign;
+
+	sign = 1;
+	i = 0;
+	if (!str || !str[i])
+		return (0);
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	if (!str[i])
+		return (0);
+	return (ft_checkdig(&str[i], sign, result));
+}
+
+int	ft_isduplicate(int *arr, int curr_size, int num)
+{
+	int	i;
+
+	i = 0;
+	while (i < curr_size)
+	{
+		if (arr[i] == num)
+			return (1);
+		i++;
+	}
+	return (0);
+}
