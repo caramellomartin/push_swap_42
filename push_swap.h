@@ -45,4 +45,7 @@ t_stack	*ft_init_stack(int *arr, int size);
 void	ft_assign_index(t_stack *stack);
 void	debug_print_stack(t_stack *stack, char *name);
 
+/* ---operators--- */
+void	ra(t_stack *stack);
+
 #endif
