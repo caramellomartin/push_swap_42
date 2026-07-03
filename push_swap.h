@@ -23,6 +23,7 @@ typedef struct s_stack
 /* --- utils.c --- */
 size_t	ft_strlen(const char *s1);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_stack_size(t_stack *stack);
 void	ft_error(int *arr);
 
 /* --- split.c --- */
@@ -53,5 +54,9 @@ void	ss(t_stack **stack_a, t_stack **stack_b);
 /* --- push.c --- */
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);
+
+/* --- sort.c --- */
+void	ft_sort_three(t_stack **stack_a);
+void	ft_sort_five(t_stack **stack_a, t_stack **stack_b);
 
 #endif

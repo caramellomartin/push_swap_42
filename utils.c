@@ -31,3 +31,16 @@ void	ft_error(int *arr)
 	write(2, "Error\n", 6);
 	exit(1);
 }
+
+int	ft_stack_size(t_stack	*stack)
+{
+	int	size;
+
+	size = 0;
+	while (stack)
+	{
+		size++;
+		stack = stack -> next;
+	}
+	return (size);
+}
