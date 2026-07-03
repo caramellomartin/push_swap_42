@@ -52,6 +52,6 @@ void	ss(t_stack **stack_a, t_stack **stack_b);
 
 /* --- push.c --- */
 void	pa(t_stack **stack_a, t_stack **stack_b);
-void    pb(t_stack **stack_a, t_stack **stack_b);
+void	pb(t_stack **stack_a, t_stack **stack_b);
 
 #endif

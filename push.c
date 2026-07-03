@@ -7,7 +7,7 @@ static void	ft_push_node(t_stack **src, t_stack **dest)
 	if (!src || !*src)
 		return ;
 	first = *src;
-	*src = (*src) -> next;
+	*src = (*src)-> next;
 	first -> next = *dest;
 	*dest = *first;
 }
@@ -21,5 +21,5 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_push_node(stack_a, stack_b);
-        write(1, "pb\n", 3);
+	write(1, "pb\n", 3);
 }

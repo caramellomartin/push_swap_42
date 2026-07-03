@@ -5,7 +5,7 @@ static void	ft_swap_nodes(t_stack **stack)
 	t_stack	*first;
 	t_stack	*second;
 
-	if (!stack || !*stack || !(*stack) -> next)
+	if (!stack || !*stack || !(*stack)-> next)
 		return ;
 	first = *stack;
 	second = first -> next;
@@ -20,10 +20,10 @@ void	sa(t_stack **stack_a)
 	write(1, "sa\n", 3);
 }
 
-void    sb(t_stack **stack_b)
+void	sb(t_stack **stack_b)
 {
-        ft_swap_nodes(stack_b);
-        write(1, "sb\n", 3);
+	ft_swap_nodes(stack_b);
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
