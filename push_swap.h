@@ -45,4 +45,9 @@ t_stack	*ft_init_stack(int *arr, int size);
 void	ft_assign_index(t_stack *stack);
 void	debug_print_stack(t_stack *stack, char *name);
 
+/* --- swap.c --- */
+void	sa(t_stack **stack_a);
+void	sb(t_stack **stack_b);
+void	ss(t_stack **stack_a, t_stack **stack_b);
+
 #endif
