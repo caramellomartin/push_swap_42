@@ -31,10 +31,3 @@ void	ft_error(int *arr)
 	write(2, "Error\n", 6);
 	exit(1);
 }
-
-
-void	ft_cpystack(t_stack *src, t_stack *dst)
-{
-	dst->index = src->index;
-	dst->value = src->value;
-}

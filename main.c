@@ -70,9 +70,9 @@ int	main(int argc, char **argv)
 	ft_assign_index(stack_a);
 	debug_print_stack(stack_a, "Stack A");
 	// JOSE: OJOO!!. TESTING OPERATORS
-	ra(stack_a);
+	ra(&stack_a);
 	debug_print_stack(stack_a, "ra: new Stack A");
-	rra(stack_a);
+	rra(&stack_a);
 	debug_print_stack(stack_a, "rra: new Stack A");
 	// JOSE: FIN
 	ft_free_stack(&stack_a);

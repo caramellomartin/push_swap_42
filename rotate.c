@@ -6,13 +6,13 @@
 /*   By: jzaquina <jzaquina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 18:38:09 by jzaquina          #+#    #+#             */
-/*   Updated: 2026/07/07 10:41:17 by jzaquina         ###   ########.fr       */
+/*   Updated: 2026/07/07 15:08:49 by jzaquina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_stack *stack)
+/* void	rotate(t_stack *stack)
 {
 	t_stack	*stk_first;
 
@@ -29,21 +29,38 @@ void	rotate(t_stack *stack)
 		stack = stack->next;
 	}
 	free(stk_first);
+} */
+
+void	rotate(t_stack **stack)
+{
+	t_stack	*last;
+	t_stack	*second;
+
+	last = *stack;
+	second = last->next;
+	while (last->next)
+	{
+		last = last->next;
+	}
+	last->next = *stack;
+	(*stack)->next = 0;
+	*stack = second;
+
 }
 
-void	ra(t_stack *stack_a)
+void	ra(t_stack **stack_a)
 {
 	rotate(stack_a);
 	write(1, "ra\n", 3);
 }
 
-void	rb(t_stack *stack_b)
+void	rb(t_stack **stack_b)
 {
 	rotate(stack_b);
 	write(1, "rb\n", 3);
 }
 
-void	rr(t_stack *stack_a, t_stack *stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
