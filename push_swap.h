@@ -20,10 +20,37 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+typedef struct s_bench
+{
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	total;
+}	t_bench;
+
 /* --- utils.c --- */
 size_t	ft_strlen(const char *s1);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_stack_size(t_stack *stack);
 void	ft_error(int *arr);
+int		ft_track_moves(int add);
+
+/* --- print_utils.c --- */
+void	ft_putstr_err(char *str);
+void	ft_putnbr_err(int n);
+void	ft_putfloat_err(double disorder);
+
+/* --- bench.c --- */
+t_bench	*ft_get_bench(void);
+void	print_benchmark(int strat, double disorder);
 
 /* --- split.c --- */
 void	ft_free_split(char **split);
@@ -45,12 +72,40 @@ t_stack	*ft_init_stack(int *arr, int size);
 void	ft_assign_index(t_stack *stack);
 void	debug_print_stack(t_stack *stack, char *name);
 
-/* ---rotation--- */
+/* --- swap.c --- */
+void	sa(t_stack **stack_a);
+void	sb(t_stack **stack_b);
+void	ss(t_stack **stack_a, t_stack **stack_b);
+
+/* --- push.c --- */
+void	pa(t_stack **stack_a, t_stack **stack_b);
+void	pb(t_stack **stack_a, t_stack **stack_b);
+
+/* --- rotate.c --- */
 void	ra(t_stack **stack_a);
-void	rb(t_stack **stack);
+void	rb(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
+
+/* --- reverse_rotate.c --- */
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
+
+/* --- disorder.c --- */
+double	ft_compute_disorder(t_stack *stack);
+
+/* --- sort.c --- */
+void	ft_sort_three(t_stack **stack_a);
+int		ft_get_min_i(t_stack *stack, int min_value);
+int		ft_find_lowest(t_stack *stack);
+
+/* --- sort_simple.c --- */
+void	ft_sort_simple(t_stack **stack_a, t_stack **stack_b);
+
+/* --- sort_medium.c --- */
+void	ft_sort_medium(t_stack **stack_a, t_stack **stack_b);
+
+/* --- sort_complex.c --- */
+void	ft_sort_complex(t_stack **stack_a, t_stack **stack_b);
 
 #endif
