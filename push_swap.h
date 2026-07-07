@@ -20,12 +20,37 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+typedef struct s_bench
+{
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	total;
+}	t_bench;
+
 /* --- utils.c --- */
 size_t	ft_strlen(const char *s1);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_stack_size(t_stack *stack);
 void	ft_error(int *arr);
 int		ft_track_moves(int add);
+
+/* --- print_utils.c --- */
+void	ft_putstr_err(char *str);
+void	ft_putnbr_err(int n);
+void	ft_putfloat_err(double disorder);
+
+/* --- bench.c --- */
+t_bench	*ft_get_bench(void);
+void	print_benchmark(int strat, double disorder);
 
 /* --- split.c --- */
 void	ft_free_split(char **split);

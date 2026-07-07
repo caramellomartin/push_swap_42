@@ -46,11 +46,8 @@ static int	ft_parse_args(char **argv, int *strat, int *bench, int *arr)
 	return (total);
 }
 
-static void	handle_adaptive(t_stack *stack_a, int *strat)
+static void	handle_adaptive(double disorder, int *strat)
 {
-	double	disorder;
-	
-	disorder = ft_compute_disorder(stack_a);
 	if (disorder < 0.2)
 		*strat = 1;
 	else if (disorder < 0.5)
@@ -75,6 +72,7 @@ int	main(int argc, char **argv)
 	int		bench_mode;
 	int		*final_array;
 	int		total_numbers;
+	double	disorder;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
@@ -93,20 +91,13 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		ft_error(NULL);
 	ft_assign_index(stack_a);
+	disorder = ft_compute_disorder(stack_a);
 	if (strat == 4)
-		handle_adaptive(stack_a, &strat);
+		handle_adaptive(disorder, &strat);
 	execute_strategy(strat, &stack_a, &stack_b);
 	if (bench_mode)
-	{
-		fprintf(stderr, "\n=== BENCHMARK REPORT ===\n");
-		fprintf(stderr, "Estrategia final usada: %d\n", strat);
-		fprintf(stderr, "Total de movimientos:   %d\n", ft_track_moves(0));
-		fprintf(stderr, "========================\n\n");
-	}
-
-	debug_print_stack(stack_a, "Stack A");
+		print_benchmark(strat, disorder);
 	ft_free_stack(&stack_a);
 	ft_free_stack(&stack_b);
-	return (0);
 	return (0);
 }

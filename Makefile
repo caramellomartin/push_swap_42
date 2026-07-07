@@ -8,6 +8,8 @@ SRC         = main.c \
               split.c \
               stack.c \
               utils.c \
+              print_utils.c \
+              bench.c \
               swap.c \
               push.c \
               rotate.c \
