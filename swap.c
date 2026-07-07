@@ -18,12 +18,14 @@ void	sa(t_stack **stack_a)
 {
 	ft_swap_nodes(stack_a);
 	write(1, "sa\n", 3);
+	ft_track_moves(1);
 }
 
 void	sb(t_stack **stack_b)
 {
 	ft_swap_nodes(stack_b);
 	write(1, "sb\n", 3);
+	ft_track_moves(1);
 }
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
@@ -31,4 +33,5 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 	ft_swap_nodes(stack_a);
 	ft_swap_nodes(stack_b);
 	write(1, "ss\n", 3);
+	ft_track_moves(1);
 }

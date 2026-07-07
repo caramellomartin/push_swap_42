@@ -44,3 +44,11 @@ int	ft_stack_size(t_stack	*stack)
 	}
 	return (size);
 }
+
+int	ft_track_moves(int add)
+{
+	static int	moves;
+
+	moves += add;
+	return (moves);
+}

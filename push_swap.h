@@ -25,6 +25,7 @@ size_t	ft_strlen(const char *s1);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_stack_size(t_stack *stack);
 void	ft_error(int *arr);
+int		ft_track_moves(int add);
 
 /* --- split.c --- */
 void	ft_free_split(char **split);

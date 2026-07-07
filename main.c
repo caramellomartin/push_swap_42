@@ -96,8 +96,17 @@ int	main(int argc, char **argv)
 	if (strat == 4)
 		handle_adaptive(stack_a, &strat);
 	execute_strategy(strat, &stack_a, &stack_b);
+	if (bench_mode)
+	{
+		fprintf(stderr, "\n=== BENCHMARK REPORT ===\n");
+		fprintf(stderr, "Estrategia final usada: %d\n", strat);
+		fprintf(stderr, "Total de movimientos:   %d\n", ft_track_moves(0));
+		fprintf(stderr, "========================\n\n");
+	}
+
 	debug_print_stack(stack_a, "Stack A");
 	ft_free_stack(&stack_a);
 	ft_free_stack(&stack_b);
+	return (0);
 	return (0);
 }

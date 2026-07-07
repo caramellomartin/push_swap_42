@@ -16,10 +16,12 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_push_node(stack_b, stack_a);
 	write(1, "pa\n", 3);
+	ft_track_moves(1);
 }
 
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_push_node(stack_a, stack_b);
 	write(1, "pb\n", 3);
+	ft_track_moves(1);
 }
