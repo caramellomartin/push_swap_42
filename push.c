@@ -9,7 +9,7 @@ static void	ft_push_node(t_stack **src, t_stack **dest)
 	first = *src;
 	*src = (*src)-> next;
 	first -> next = *dest;
-	*dest = *first;
+	*dest = first;
 }
 
 void	pa(t_stack **stack_a, t_stack **stack_b)

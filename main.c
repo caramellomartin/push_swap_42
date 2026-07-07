@@ -46,6 +46,29 @@ static int	ft_parse_args(char **argv, int *strat, int *bench, int *arr)
 	return (total);
 }
 
+static void	handle_adaptive(t_stack *stack_a, int *strat)
+{
+	double	disorder;
+	
+	disorder = ft_compute_disorder(stack_a);
+	if (disorder < 0.2)
+		*strat = 1;
+	else if (disorder < 0.5)
+		*strat = 2;
+	else
+		*strat = 3;
+}
+
+static void	execute_strategy(int strat, t_stack **a, t_stack **b)
+{
+	if (strat == 1)
+		ft_sort_simple(a, b);
+	else if (strat == 2)
+		ft_sort_medium(a, b);
+	else if (strat == 3)
+		ft_sort_complex(a, b);
+}
+
 int	main(int argc, char **argv)
 {
 	int		strat;
@@ -53,9 +76,11 @@ int	main(int argc, char **argv)
 	int		*final_array;
 	int		total_numbers;
 	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	strat = 4;
 	bench_mode = 0;
+	stack_b = NULL;
 	final_array = malloc(sizeof(int) * (argc * 10));
 	if (argc < 2 || !final_array)
 	{
@@ -68,9 +93,11 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		ft_error(NULL);
 	ft_assign_index(stack_a);
-	//debug_print_stack(stack_a, "Stack A");
-	//sa(&stack_a);
+	if (strat == 4)
+		handle_adaptive(stack_a, &strat);
+	execute_strategy(strat, &stack_a, &stack_b);
 	debug_print_stack(stack_a, "Stack A");
 	ft_free_stack(&stack_a);
+	ft_free_stack(&stack_b);
 	return (0);
 }

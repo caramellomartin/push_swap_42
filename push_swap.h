@@ -55,8 +55,31 @@ void	ss(t_stack **stack_a, t_stack **stack_b);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);
 
+/* --- rotate.c --- */
+void	ra(t_stack **stack_a);
+void	rb(t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+
+/* --- reverse_rotate.c --- */
+void	rra(t_stack **stack_a);
+void	rrb(t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
+
+/* --- disorder.c --- */
+double	ft_compute_disorder(t_stack *stack);
+
 /* --- sort.c --- */
 void	ft_sort_three(t_stack **stack_a);
-void	ft_sort_five(t_stack **stack_a, t_stack **stack_b);
+int		ft_get_min_i(t_stack *stack, int min_value);
+int		ft_find_lowest(t_stack *stack);
+
+/* --- sort_simple.c --- */
+void	ft_sort_simple(t_stack **stack_a, t_stack **stack_b);
+
+/* --- sort_medium.c --- */
+void	ft_sort_medium(t_stack **stack_a, t_stack **stack_b);
+
+/* --- sort_complex.c --- */
+void	ft_sort_complex(t_stack **stack_a, t_stack **stack_b);
 
 #endif
