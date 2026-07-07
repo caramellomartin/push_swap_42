@@ -45,7 +45,11 @@ t_stack	*ft_init_stack(int *arr, int size);
 void	ft_assign_index(t_stack *stack);
 void	debug_print_stack(t_stack *stack, char *name);
 
-/* ---operators--- */
+/* ---rotation--- */
+void	ft_cpystack(t_stack *src, t_stack *dst);
 void	ra(t_stack *stack);
+void	rb(t_stack *stack);
+void	rr(t_stack *stack_a, t_stack *stack_b);
+void	rra(t_stack *stack_a);
 
 #endif
