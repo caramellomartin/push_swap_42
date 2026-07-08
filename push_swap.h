@@ -40,8 +40,7 @@ typedef struct s_bench
 size_t	ft_strlen(const char *s1);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_stack_size(t_stack *stack);
-void	ft_error(int *arr);
-int		ft_track_moves(int add);
+void	ft_error(void);
 
 /* --- print_utils.c --- */
 void	ft_putstr_err(char *str);
@@ -56,21 +55,22 @@ void	print_benchmark(int strat, double disorder);
 void	ft_free_split(char **split);
 char	**ft_split(char const *s, char c);
 
-/* --- parsing.c --- */
+/* --- parsing_utils.c --- */
 int		is_flag(char *argv, int *strat, int *bench);
 int		ft_checkdig(const char *str, int sign, int *result);
 int		ft_isnumber(const char *str, int *result);
-int		ft_isduplicate(int *arr, int curr_size, int num);
+int		ft_isduplicate(t_stack *stack, int val);
+
+/* --- parsing.c --- */
+void	ft_parse_args(char **argv, int *strat, int *bench, t_stack **stack_a);
 
 /* --- stack.c --- */
 t_stack	*ft_new_node(int value);
 void	ft_add_back(t_stack **stack, t_stack *new_node);
 void	ft_free_stack(t_stack **stack);
-t_stack	*ft_init_stack(int *arr, int size);
 
 /* --- index.c --- */
 void	ft_assign_index(t_stack *stack);
-void	debug_print_stack(t_stack *stack, char *name);
 
 /* --- swap.c --- */
 void	sa(t_stack **stack_a);
@@ -98,6 +98,7 @@ double	ft_compute_disorder(t_stack *stack);
 void	ft_sort_three(t_stack **stack_a);
 int		ft_get_min_i(t_stack *stack, int min_value);
 int		ft_find_lowest(t_stack *stack);
+void	execute_strategy(int strat, t_stack **a, t_stack **b);
 
 /* --- sort_simple.c --- */
 void	ft_sort_simple(t_stack **stack_a, t_stack **stack_b);

@@ -50,12 +50,20 @@ void	ft_sort_three(t_stack **stack_a)
 	if (!stack_a || !*stack_a || !(*stack_a)-> next)
 		return ;
 	highest = ft_find_highest(*stack_a);
-	//Si el mayor esta arriba o en medio, lo mandamos al fondo
 	if ((*stack_a)-> value == highest)
 		ra(stack_a);
 	else if ((*stack_a)-> next -> value == highest)
 		rra(stack_a);
-	//Si los dos primeros estan invertidos
 	if ((*stack_a)-> value > (*stack_a)-> next -> value)
 		sa(stack_a);
+}
+
+void     execute_strategy(int strat, t_stack **a, t_stack **b)
+{
+        if (strat == 1)
+                ft_sort_simple(a, b);
+        else if (strat == 2)
+                ft_sort_medium(a, b);
+        else if (strat == 3)
+                ft_sort_complex(a, b);
 }
