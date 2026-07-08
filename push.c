@@ -25,5 +25,5 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 	ft_push_node(stack_a, stack_b);
 	write(1, "pb\n", 3);
 	ft_get_bench()->pb++;
-        ft_get_bench()->total++;
+	ft_get_bench()->total++;
 }

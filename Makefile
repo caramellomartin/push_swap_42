@@ -28,7 +28,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.c push_swap.h
+%.o: %.c Makefile push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

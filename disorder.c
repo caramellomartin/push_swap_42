@@ -25,6 +25,6 @@ double	ft_compute_disorder(t_stack *stack)
 		current = current -> next;
 	}
 	if (total_pairs == 0.0)
-		return (0.0);	
+		return (0.0);
 	return (mistakes / total_pairs);
 }
