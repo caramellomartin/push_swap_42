@@ -43,25 +43,3 @@ void	ft_free_stack(t_stack **stack)
 		*stack = tmp;
 	}
 }
-
-t_stack	*ft_init_stack(int *arr, int size)
-{
-	t_stack	*stack_a;
-	t_stack	*new_node;
-	int		i;
-
-	stack_a = NULL;
-	i = 0;
-	while (i < size)
-	{
-		new_node = ft_new_node(arr[i]);
-		if (!new_node)
-		{
-			ft_free_stack(&stack_a);
-			return (NULL);
-		}
-		ft_add_back(&stack_a, new_node);
-		i++;
-	}
-	return (stack_a);
-}

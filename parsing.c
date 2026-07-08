@@ -1,85 +1,54 @@
 #include "push_swap.h"
 
-int	is_flag(char *argv, int *strat, int *bench)
+static void	process_sub(char **sub, t_stack **stack_a)
 {
-	size_t				i;
-	static const t_flag	lut[] = {
-	{"--simple", 1},
-	{"--medium", 2},
-	{"--complex", 3},
-	{"--adaptive", 4},
-	{NULL, 0}
-	};
+	int		j;
+	int		val;
+	t_stack	*new_node;
 
-	i = 0;
-	if (ft_strncmp(argv, "--bench", 8) == 0)
+	j = 0;
+	while (sub[j])
 	{
-		*bench = 1;
-		return (1);
-	}
-	while (lut[i].name != NULL)
-	{
-		if (ft_strncmp(argv, lut[i].name, ft_strlen(lut[i].name) + 1) == 0)
+		if (!ft_isnumber(sub[j], &val) || ft_isduplicate(*stack_a, val))
 		{
-			*strat = lut[i].value;
-			return (1);
+			ft_free_split(sub);
+			ft_free_stack(stack_a);
+			ft_error();
 		}
-		i++;
+		new_node = ft_new_node(val);
+		if (!new_node)
+		{
+			ft_free_split(sub);
+			ft_free_stack(stack_a);
+			ft_error();
+		}
+		ft_add_back(stack_a, new_node);
+		j++;
 	}
-	return (0);
 }
 
-int	ft_checkdig(const char *str, int sign, int *result)
+void	ft_parse_args(char **argv, int *strat, int *bench, t_stack **stack_a)
 {
 	int		i;
-	long	res;
+	char	**sub;
 
-	i = 0;
-	res = 0;
-	while (str[i])
+	i = 1;
+	while (argv[i])
 	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		res = (res * 10) + (str[i] - '0');
-		if ((sign == 1 && res > INT_MAX)
-			|| (sign == -1 && res > (long)INT_MAX + 1))
-			return (0);
+		if (is_flag(argv[i], strat, bench))
+		{
+			i++;
+			continue ;
+		}
+		sub = ft_split(argv[i], ' ');
+		if (!sub || !sub[0])
+		{
+			ft_free_split(sub);
+			ft_free_stack(stack_a);
+			ft_error();
+		}
+		process_sub(sub, stack_a);
+		ft_free_split(sub);
 		i++;
 	}
-	*result = (int)(res * sign);
-	return (1);
-}
-
-int	ft_isnumber(const char *str, int *result)
-{
-	int	i;
-	int	sign;
-
-	sign = 1;
-	i = 0;
-	if (!str || !str[i])
-		return (0);
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
-	if (!str[i])
-		return (0);
-	return (ft_checkdig(&str[i], sign, result));
-}
-
-int	ft_isduplicate(int *arr, int curr_size, int num)
-{
-	int	i;
-
-	i = 0;
-	while (i < curr_size)
-	{
-		if (arr[i] == num)
-			return (1);
-		i++;
-	}
-	return (0);
 }

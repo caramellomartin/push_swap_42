@@ -1,7 +1,5 @@
 #include "push_swap.h"
 
-#include "push_swap.h"
-
 static int	ft_get_max_bits(t_stack *stack)
 {
 	int	max_num;

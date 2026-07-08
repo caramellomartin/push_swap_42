@@ -1,54 +1,10 @@
 #include "push_swap.h"
 
-static void	process_sub(char **sub, int *arr, int *total)
+static void	handle_adaptive(double disorder, int *strat, int total_numbers)
 {
-	int	j;
-	int	val;
-
-	j = 0;
-	while (sub[j])
-	{
-		if (!ft_isnumber(sub[j], &val) || ft_isduplicate(arr, *total, val))
-		{
-			ft_free_split(sub);
-			ft_error(arr);
-		}
-		arr[(*total)++] = val;
-		j++;
-	}
-}
-
-static int	ft_parse_args(char **argv, int *strat, int *bench, int *arr)
-{
-	int		i;
-	int		total;
-	char	**sub;
-
-	i = 1;
-	total = 0;
-	while (argv[i])
-	{
-		if (is_flag(argv[i], strat, bench))
-		{
-			i++;
-			continue ;
-		}
-		sub = ft_split(argv[i], ' ');
-		if (!sub || !sub[0])
-		{
-			ft_free_split(sub);
-			ft_error(arr);
-		}
-		process_sub(sub, arr, &total);
-		ft_free_split(sub);
-		i++;
-	}
-	return (total);
-}
-
-static void	handle_adaptive(double disorder, int *strat)
-{
-	if (disorder < 0.2)
+	if (total_numbers <= 5)
+		*strat = 1;
+	else if (disorder < 0.2)
 		*strat = 1;
 	else if (disorder < 0.5)
 		*strat = 2;
@@ -56,48 +12,43 @@ static void	handle_adaptive(double disorder, int *strat)
 		*strat = 3;
 }
 
-static void	execute_strategy(int strat, t_stack **a, t_stack **b)
+static void	run_push_swap(t_stack **stack_a, int strat, int bench, double dis)
 {
-	if (strat == 1)
-		ft_sort_simple(a, b);
-	else if (strat == 2)
-		ft_sort_medium(a, b);
-	else if (strat == 3)
-		ft_sort_complex(a, b);
+	t_stack	*stack_b;
+
+	stack_b = NULL;
+	if (dis == 0.0)
+	{
+		if (bench)
+			print_benchmark(strat, dis);
+		return ;
+	}
+	execute_strategy(strat, stack_a, &stack_b);
+	if (bench)
+		print_benchmark(strat, dis);
+	ft_free_stack(&stack_b);
 }
 
 int	main(int argc, char **argv)
 {
 	int		strat;
 	int		bench_mode;
-	int		*final_array;
-	int		total_numbers;
 	double	disorder;
 	t_stack	*stack_a;
-	t_stack	*stack_b;
 
+	if (argc < 2)
+		return (0);
 	strat = 4;
 	bench_mode = 0;
-	stack_b = NULL;
-	final_array = malloc(sizeof(int) * (argc * 10));
-	if (argc < 2 || !final_array)
-	{
-		free(final_array);
-		return (0);
-	}
-	total_numbers = ft_parse_args(argv, &strat, &bench_mode, final_array);
-	stack_a = ft_init_stack(final_array, total_numbers);
-	free(final_array);
+	stack_a = NULL;
+	ft_parse_args(argv, &strat, &bench_mode, &stack_a);
 	if (!stack_a)
-		ft_error(NULL);
+		ft_error();
 	ft_assign_index(stack_a);
 	disorder = ft_compute_disorder(stack_a);
 	if (strat == 4)
-		handle_adaptive(disorder, &strat);
-	execute_strategy(strat, &stack_a, &stack_b);
-	if (bench_mode)
-		print_benchmark(strat, disorder);
+		handle_adaptive(disorder, &strat, ft_stack_size(stack_a));
+	run_push_swap(&stack_a, strat, bench_mode, disorder);
 	ft_free_stack(&stack_a);
-	ft_free_stack(&stack_b);
 	return (0);
 }

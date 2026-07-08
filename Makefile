@@ -5,7 +5,8 @@ RM          = rm -f
 
 SRC         = main.c \
               parsing.c \
-              split.c \
+	      parsing_utils.c \
+	      split.c \
               stack.c \
               utils.c \
               print_utils.c \
