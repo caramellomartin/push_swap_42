@@ -109,14 +109,20 @@ else
 - Ejecuta un ciclo externo bit por bit. En cada iteración, analiza mediante operaciones a nivel de bits (>> y & 1) si el bit evaluado del elemento en el tope de A es un 1 (en cuyo caso realiza un ra manteniéndolo en A) o un 0 (lo envía temporalmente a B mediante pb). Tras procesar la pila completa, vacía secuencialmente B de regreso a A para pasar al siguiente bit.
 
 ## Breve analisis de Complejidad
+
+[Gráfico de Complejidad Algoritmica](https://www.desmos.com/calculator/cztxhv7gu7)
+
 - Complejidad Espacial: $\mathcal{O}(N)$. La memoria asignada de forma dinámica crece linealmente en relación directa al número de elementos enteros $N$ introducidos en los Stacks.
 
 - Complejidad Temporal:
-  - Estrategia Simple: $\mathcal{O}(N^2)$ en el peor de los casos debido al bucle anidado de búsqueda de mínimos, pero altamente eficiente en instrucciones reales para colecciones pequeñas.
+  - Estrategia Simple (Extraccion del minimo): $\mathcal{O}(N^2)$ en el peor de los casos debido al bucle anidado de búsqueda de mínimos, pero altamente eficiente en instrucciones reales para colecciones pequeñas.
 
-  - Estrategia Medium: $\mathcal{O}(N^2)$ al recalcular distancias del valor máximo en cada retorno de B a A.
+  - Estrategia Medium (Algoritmo de la Ventana Deslizante): $\mathcal{O}(N\sqrt{N})$ al usar ventanas de chunks dinamicas.
 
-  - Estrategia Complex (Radix): $\mathcal{O}(N \cdot K)$, donde $K$ es la cantidad de bits significativos del número más grande. Garantiza un comportamiento lineal y determinista frente a desórdenes absolutos.
+  - Estrategia Complex ( Radix Sort Canónico en Binario): $\mathcal{O}(N log N)$: el algortimo Radix, tradicionalmente es de complejidad $\mathcal{O}(N \odot K)$ siendo $K$ la cantidad de bits significativos del número más grande.
+
+    Pero dado que  se indexo el stack, los índices van estrictamente de 0 a n - 1, el valor de max_bits depende única y exclusivamente del tamaño del stack (n).Dado que max_bits $\mathcal{O}(log N)$, el total de operaciones del código sigue la función: $\mathcal{O}(n\cdot \log _{2}n)$
+
 
 ## Contribuciones Jzaquina
 - Implementación y optimización de las operaciones lógicas de rotación completa: ra, rb, rr.
