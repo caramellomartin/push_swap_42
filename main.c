@@ -12,11 +12,9 @@
 
 #include "push_swap.h"
 
-static void	handle_adaptive(double disorder, int *strat, int total_numbers)
+static void	handle_adaptive(double disorder, int *strat)
 {
-	if (total_numbers <= 5)
-		*strat = 1;
-	else if (disorder < 0.2)
+	if (disorder < 0.2)
 		*strat = 1;
 	else if (disorder < 0.5)
 		*strat = 2;
@@ -51,6 +49,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	strat = 4;
+	ft_get_bench()->is_adaptive = 4;
 	bench_mode = 0;
 	stack_a = NULL;
 	ft_parse_args(argv, &strat, &bench_mode, &stack_a);
@@ -59,7 +58,7 @@ int	main(int argc, char **argv)
 	ft_assign_index(stack_a);
 	disorder = ft_compute_disorder(stack_a);
 	if (strat == 4)
-		handle_adaptive(disorder, &strat, ft_stack_size(stack_a));
+		handle_adaptive(disorder, &strat);
 	run_push_swap(&stack_a, strat, bench_mode, disorder);
 	ft_free_stack(&stack_a);
 	return (0);

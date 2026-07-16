@@ -45,6 +45,7 @@ typedef struct s_bench
 	int	rra;
 	int	rrb;
 	int	rrr;
+	int 	is_adaptive;
 	int	total;
 }	t_bench;
 

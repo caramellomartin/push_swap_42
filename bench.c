@@ -59,10 +59,19 @@ void	print_benchmark(int strat, double disorder)
 	ft_putstr_err("[bench] disorder: ");
 	ft_putfloat_err(disorder);
 	ft_putstr_err("[bench] strategy: ");
-	if (strat == 1)
+	if (b->is_adaptive == 4)
+	{
+		if (strat == 1)
+			ft_putstr_err("Adaptive / O(n^2)\n");
+		else if (strat == 2)
+			ft_putstr_err("Adaptive / O(n*sqrt(n))\n");
+		else
+			ft_putstr_err("Adaptive / O(n log n)\n");
+	}
+	else if (strat == 1)
 		ft_putstr_err("Simple / O(n^2)\n");
 	else if (strat == 2)
-		ft_putstr_err("Adaptive / O(n*sqrt(n))\n");
+		ft_putstr_err("Medium / O(n*sqrt(n))\n");
 	else
 		ft_putstr_err("Complex / O(n log n)\n");
 	ft_putstr_err("[bench] total_ops: ");
