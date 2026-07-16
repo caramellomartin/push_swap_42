@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   disorder.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marcaram <marcaram@student.42barcelona.co  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/16 16:43:47 by marcaram          #+#    #+#             */
+/*   Updated: 2026/07/16 16:43:51 by marcaram         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 double	ft_compute_disorder(t_stack *stack)
@@ -25,6 +37,6 @@ double	ft_compute_disorder(t_stack *stack)
 		current = current -> next;
 	}
 	if (total_pairs == 0.0)
-		return (0.0);	
+		return (0.0);
 	return (mistakes / total_pairs);
 }

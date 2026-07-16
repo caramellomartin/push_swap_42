@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marcaram <marcaram@student.42barcelona.co  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/16 16:45:10 by marcaram          #+#    #+#             */
+/*   Updated: 2026/07/16 16:45:12 by marcaram         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static	int	ft_find_highest(t_stack *stack)
@@ -58,12 +70,12 @@ void	ft_sort_three(t_stack **stack_a)
 		sa(stack_a);
 }
 
-void     execute_strategy(int strat, t_stack **a, t_stack **b)
+void	execute_strategy(int strat, t_stack **a, t_stack **b)
 {
-        if (strat == 1)
-                ft_sort_simple(a, b);
-        else if (strat == 2)
-                ft_sort_medium(a, b);
-        else if (strat == 3)
-                ft_sort_complex(a, b);
+	if (strat == 1)
+		ft_sort_simple(a, b);
+	else if (strat == 2)
+		ft_sort_medium(a, b);
+	else if (strat == 3)
+		ft_sort_complex(a, b);
 }

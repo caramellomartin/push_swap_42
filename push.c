@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marcaram <marcaram@student.42barcelona.co  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/16 16:44:26 by marcaram          #+#    #+#             */
+/*   Updated: 2026/07/16 16:44:34 by marcaram         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	ft_push_node(t_stack **src, t_stack **dest)
@@ -25,5 +37,5 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 	ft_push_node(stack_a, stack_b);
 	write(1, "pb\n", 3);
 	ft_get_bench()->pb++;
-        ft_get_bench()->total++;
+	ft_get_bench()->total++;
 }
