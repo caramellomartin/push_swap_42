@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcaram <marcaram@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: jzaquina <jzaquina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 16:44:12 by marcaram          #+#    #+#             */
-/*   Updated: 2026/07/16 16:44:16 by marcaram         ###   ########.fr       */
+/*   Updated: 2026/07/17 18:23:26 by jzaquina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ int	is_flag(char *argv, int *strat, int *bench)
 	i = 0;
 	if (ft_strncmp(argv, "--bench", 8) == 0)
 	{
+		if (*bench != 0)
+		{
+			*bench = -1;
+			return (0);
+		}
 		*bench = 1;
 		return (1);
 	}
@@ -30,6 +35,11 @@ int	is_flag(char *argv, int *strat, int *bench)
 	{
 		if (ft_strncmp(argv, lut[i].name, ft_strlen(lut[i].name) + 1) == 0)
 		{
+			if (*strat != 0)
+			{
+				*strat = -1;
+				return (0);
+			}
 			*strat = lut[i].value;
 			ft_get_bench()->is_adaptive = lut[i].value;
 			return (1);

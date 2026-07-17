@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcaram <marcaram@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: jzaquina <jzaquina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 16:44:03 by marcaram          #+#    #+#             */
-/*   Updated: 2026/07/16 16:44:09 by marcaram         ###   ########.fr       */
+/*   Updated: 2026/07/17 18:23:21 by jzaquina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	ft_parse_args(char **argv, int *strat, int *bench, t_stack **stack_a)
 	int		i;
 	char	**sub;
 
+	*strat = 0;
 	i = 1;
 	while (argv[i])
 	{
@@ -53,7 +54,7 @@ void	ft_parse_args(char **argv, int *strat, int *bench, t_stack **stack_a)
 			continue ;
 		}
 		sub = ft_split(argv[i], ' ');
-		if (!sub || !sub[0])
+		if (!sub || !sub[0] || *strat == -1 || *bench == -1)
 		{
 			ft_free_split(sub);
 			ft_free_stack(stack_a);
@@ -63,4 +64,6 @@ void	ft_parse_args(char **argv, int *strat, int *bench, t_stack **stack_a)
 		ft_free_split(sub);
 		i++;
 	}
+	if (*strat == 0)
+		*strat = 4;
 }

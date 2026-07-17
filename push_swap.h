@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcaram <marcaram@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: jzaquina <jzaquina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 16:48:56 by marcaram          #+#    #+#             */
-/*   Updated: 2026/07/16 16:48:59 by marcaram         ###   ########.fr       */
+/*   Updated: 2026/07/17 17:54:07 by jzaquina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_bench
 	int	rra;
 	int	rrb;
 	int	rrr;
-	int 	is_adaptive;
+	int	is_adaptive;
 	int	total;
 }	t_bench;
 
