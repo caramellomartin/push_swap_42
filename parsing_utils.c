@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	is_flag(char *argv, int *strat, int *bench)
+static int	ft_check_strat(char *argv, int *strat)
 {
 	size_t				i;
 	static const t_flag	lut[] = {
@@ -21,16 +21,6 @@ int	is_flag(char *argv, int *strat, int *bench)
 	};
 
 	i = 0;
-	if (ft_strncmp(argv, "--bench", 8) == 0)
-	{
-		if (*bench != 0)
-		{
-			*bench = -1;
-			return (0);
-		}
-		*bench = 1;
-		return (1);
-	}
 	while (lut[i].name != NULL)
 	{
 		if (ft_strncmp(argv, lut[i].name, ft_strlen(lut[i].name) + 1) == 0)
@@ -47,6 +37,21 @@ int	is_flag(char *argv, int *strat, int *bench)
 		i++;
 	}
 	return (0);
+}
+
+int	is_flag(char *argv, int *strat, int *bench)
+{
+	if (ft_strncmp(argv, "--bench", 8) == 0)
+	{
+		if (*bench != 0)
+		{
+			*bench = -1;
+			return (0);
+		}
+		*bench = 1;
+		return (1);
+	}
+	return (ft_check_strat(argv, strat));
 }
 
 int	ft_checkdig(const char *str, int sign, int *result)
