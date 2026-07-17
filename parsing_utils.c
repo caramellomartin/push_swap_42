@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marcaram <marcaram@student.42barcelona.co  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/16 16:44:12 by marcaram          #+#    #+#             */
+/*   Updated: 2026/07/16 16:44:16 by marcaram         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	is_flag(char *argv, int *strat, int *bench)
@@ -19,6 +31,7 @@ int	is_flag(char *argv, int *strat, int *bench)
 		if (ft_strncmp(argv, lut[i].name, ft_strlen(lut[i].name) + 1) == 0)
 		{
 			*strat = lut[i].value;
+			ft_get_bench()->is_adaptive = lut[i].value;
 			return (1);
 		}
 		i++;
