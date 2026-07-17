@@ -30,8 +30,10 @@ static int	ft_get_max_i(t_stack *stack, int max_index)
 static void	ft_push_chunks(t_stack **stack_a, t_stack **stack_b)
 {
 	int	pushed;
+	int	chunk_size;
 
 	pushed = 0;
+	chunk_size = ft_stack_size(*stack_a) / 7;
 	while (*stack_a)
 	{
 		if ((*stack_a)-> index <= pushed)
@@ -39,7 +41,7 @@ static void	ft_push_chunks(t_stack **stack_a, t_stack **stack_b)
 			pb(stack_a, stack_b);
 			pushed++;
 		}
-		else if ((*stack_a)-> index <= pushed + 15)
+		else if ((*stack_a)-> index <= pushed + chunk_size)
 		{
 			pb(stack_a, stack_b);
 			rb(stack_b);
