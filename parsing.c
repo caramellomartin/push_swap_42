@@ -6,13 +6,13 @@
 /*   By: jzaquina <jzaquina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 16:44:03 by marcaram          #+#    #+#             */
-/*   Updated: 2026/07/17 18:23:21 by jzaquina         ###   ########.fr       */
+/*   Updated: 2026/07/17 21:33:29 by jzaquina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	process_sub(char **sub, t_stack **stack_a)
+void	process_sub(char **sub, t_stack **stack_a)
 {
 	int		j;
 	int		val;

@@ -6,7 +6,7 @@
 /*   By: jzaquina <jzaquina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 16:48:56 by marcaram          #+#    #+#             */
-/*   Updated: 2026/07/17 17:54:07 by jzaquina         ###   ########.fr       */
+/*   Updated: 2026/07/17 21:33:50 by jzaquina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int		ft_isduplicate(t_stack *stack, int val);
 
 /* --- parsing.c --- */
 void	ft_parse_args(char **argv, int *strat, int *bench, t_stack **stack_a);
+void	process_sub(char **sub, t_stack **stack_a);
 
 /* --- stack.c --- */
 t_stack	*ft_new_node(int value);

@@ -1,4 +1,5 @@
 NAME        = push_swap
+CHECKER = checker
 CC          = cc
 CFLAGS      = -Wall -Werror -Wextra
 RM          = rm -f
@@ -24,19 +25,27 @@ SRC         = main.c \
 
 OBJ         = $(SRC:.c=.o)
 
-all: $(NAME)
+CHECKER_SRC = checker.c  \
+                $(filter-out main.c,$(SRC))
+
+CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
+
+all: $(NAME) $(CHECKER)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.c Makefile push_swap.h
+$(CHECKER): $(CHECKER_OBJ)
+	$(CC) $(CFLAGS) $(CHECKER_OBJ) -o $(CHECKER)
+
+%.o: %.c Makefile push_swap.h checker.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(CHECKER_OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(CHECKER)
 
 re: fclean all
 
