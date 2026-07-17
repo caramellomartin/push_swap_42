@@ -27,7 +27,7 @@ static void	ft_push_node(t_stack **src, t_stack **dest)
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_push_node(stack_b, stack_a);
-	write(1, "pa\n", 3);
+	ft_print_move("pb\n");
 	ft_get_bench()->pa++;
 	ft_get_bench()->total++;
 }
@@ -35,7 +35,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_push_node(stack_a, stack_b);
-	write(1, "pb\n", 3);
+	ft_print_move("pb\n");
 	ft_get_bench()->pb++;
 	ft_get_bench()->total++;
 }

@@ -51,3 +51,9 @@ void	ft_putfloat_err(double disorder)
 	ft_putnbr_err(decimal_part);
 	write(2, "%\n", 2);
 }
+
+void	ft_print_move(char *move)
+{
+	if (ft_get_bench()->mode == 0)
+		write(1, move, ft_strlen(move));
+}

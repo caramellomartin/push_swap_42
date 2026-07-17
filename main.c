@@ -55,6 +55,7 @@ int	main(int argc, char **argv)
 	ft_parse_args(argv, &strat, &bench_mode, &stack_a);
 	if (!stack_a)
 		ft_error();
+	ft_get_bench()->mode = bench_mode;
 	ft_assign_index(stack_a);
 	disorder = ft_compute_disorder(stack_a);
 	if (strat == 4)

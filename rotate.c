@@ -31,7 +31,7 @@ static void	rotate_nodes(t_stack **stack)
 void	ra(t_stack **stack_a)
 {
 	rotate_nodes(stack_a);
-	write(1, "ra\n", 3);
+	ft_print_move("ra\n");
 	ft_get_bench()->ra++;
 	ft_get_bench()->total++;
 }
@@ -39,7 +39,7 @@ void	ra(t_stack **stack_a)
 void	rb(t_stack **stack_b)
 {
 	rotate_nodes(stack_b);
-	write(1, "rb\n", 3);
+	ft_print_move("rb\n");
 	ft_get_bench()->rb++;
 	ft_get_bench()->total++;
 }
@@ -48,7 +48,7 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate_nodes(stack_a);
 	rotate_nodes(stack_b);
-	write(1, "rr\n", 3);
+	ft_print_move("rr\n");
 	ft_get_bench()->rr++;
 	ft_get_bench()->total++;
 }
