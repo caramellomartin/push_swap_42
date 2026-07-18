@@ -48,7 +48,7 @@ CHECKER_SRC = checker.c  \
 
 CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
 
-all: $(NAME) $(CHECKER)
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
