@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcaram <marcaram@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: jzaquina <jzaquina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 16:45:35 by marcaram          #+#    #+#             */
-/*   Updated: 2026/07/16 16:45:37 by marcaram         ###   ########.fr       */
+/*   Updated: 2026/07/18 11:07:15 by jzaquina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,20 @@ void	ft_free_stack(t_stack **stack)
 		free(*stack);
 		*stack = tmp;
 	}
+}
+
+int	is_sorted(t_stack *stack)
+{
+	int size;
+
+	size = ft_stack_size(stack);
+	if (!stack || size < 2)
+		return (1);
+	while (stack && stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

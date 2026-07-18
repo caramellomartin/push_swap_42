@@ -6,23 +6,11 @@
 /*   By: jzaquina <jzaquina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 16:48:48 by jzaquina          #+#    #+#             */
-/*   Updated: 2026/06/26 17:47:07 by jzaquina         ###   ########.fr       */
+/*   Updated: 2026/07/18 11:12:08 by jzaquina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-
-size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		i++;
-	}
-	return (i);
-}
+#include "checker.h"
 
 void	addstr(char	*ptr, char *str, int start)
 {

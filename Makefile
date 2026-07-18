@@ -26,6 +26,8 @@ SRC         = main.c \
 OBJ         = $(SRC:.c=.o)
 
 CHECKER_SRC = checker.c  \
+                get_next_line.c  \
+                get_next_line_utils.c  \
                 $(filter-out main.c,$(SRC))
 
 CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
