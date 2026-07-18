@@ -54,6 +54,6 @@ void	ft_putfloat_err(double disorder)
 
 void	ft_print_move(char *move)
 {
-	if (ft_get_bench()->mode == 0)
+	if (ft_get_bench()->mode <= 1)
 		write(1, move, ft_strlen(move));
 }
