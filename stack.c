@@ -6,7 +6,7 @@
 /*   By: jzaquina <jzaquina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 16:45:35 by marcaram          #+#    #+#             */
-/*   Updated: 2026/07/18 11:07:15 by jzaquina         ###   ########.fr       */
+/*   Updated: 2026/07/18 11:35:00 by jzaquina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_free_stack(t_stack **stack)
 
 int	is_sorted(t_stack *stack)
 {
-	int size;
+	int	size;
 
 	size = ft_stack_size(stack);
 	if (!stack || size < 2)

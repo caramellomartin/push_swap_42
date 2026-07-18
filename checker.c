@@ -6,7 +6,7 @@
 /*   By: jzaquina <jzaquina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/17 21:19:52 by jzaquina          #+#    #+#             */
-/*   Updated: 2026/07/18 11:20:29 by jzaquina         ###   ########.fr       */
+/*   Updated: 2026/07/18 11:35:16 by jzaquina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-
 	ft_get_bench()->mode = 1;
 	if (argc <= 1)
 		return (0);
