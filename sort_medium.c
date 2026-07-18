@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+/* Finds the position of a specific target index in the stack */
 static int	ft_get_max_i(t_stack *stack, int max_index)
 {
 	int	i;
@@ -27,6 +28,7 @@ static int	ft_get_max_i(t_stack *stack, int max_index)
 	return (0);
 }
 
+/* Pushes nodes to Stack B in dynamic blocks (chunks) to pre-sort data */
 static void	ft_push_chunks(t_stack **stack_a, t_stack **stack_b)
 {
 	int	pushed;
@@ -52,6 +54,7 @@ static void	ft_push_chunks(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
+/* Chunk-based sorting strategy optimized for medium-sized lists */
 void	ft_sort_medium(t_stack **stack_a, t_stack **stack_b)
 {
 	int	size;

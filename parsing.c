@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+/* Validates and adds numbers from a split string into the stack */
 static void	process_sub(char **sub, t_stack **stack_a)
 {
 	int		j;
@@ -39,6 +40,7 @@ static void	process_sub(char **sub, t_stack **stack_a)
 	}
 }
 
+/* Parses CLI arguments, handles flags, and builds the initial stack */
 void	ft_parse_args(char **argv, int *strat, int *bench, t_stack **stack_a)
 {
 	int		i;
