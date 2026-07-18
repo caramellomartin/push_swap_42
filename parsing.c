@@ -6,11 +6,12 @@
 /*   By: jzaquina <jzaquina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 16:44:03 by marcaram          #+#    #+#             */
-/*   Updated: 2026/07/17 21:33:29 by jzaquina         ###   ########.fr       */
+/*   Updated: 2026/07/18 12:00:58 by jzaquina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/* Validates and adds numbers from a split string into the stack */
 
 void	process_sub(char **sub, t_stack **stack_a)
 {
@@ -39,6 +40,7 @@ void	process_sub(char **sub, t_stack **stack_a)
 	}
 }
 
+/* Parses CLI arguments, handles flags, and builds the initial stack */
 void	ft_parse_args(char **argv, int *strat, int *bench, t_stack **stack_a)
 {
 	int		i;

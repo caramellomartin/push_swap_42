@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+/* Selects the sorting strategy based on the list's disorder percentage */
 static void	handle_adaptive(double disorder, int *strat)
 {
 	if (disorder < 0.2)
@@ -22,6 +23,7 @@ static void	handle_adaptive(double disorder, int *strat)
 		*strat = 3;
 }
 
+/* Executes the chosen sorting algorithm and handles benchmark output */
 static void	run_push_swap(t_stack **stack_a, int strat, int bench, double dis)
 {
 	t_stack	*stack_b;
@@ -39,6 +41,7 @@ static void	run_push_swap(t_stack **stack_a, int strat, int bench, double dis)
 	ft_free_stack(&stack_b);
 }
 
+/* Parses arguments, initializes metrics, and triggers the sort */
 int	main(int argc, char **argv)
 {
 	int		strat;

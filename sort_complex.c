@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+/* Calculates the maximum number of bits required for the radix sort */
 static int	ft_get_max_bits(t_stack *stack)
 {
 	int	max_num;
@@ -24,6 +25,7 @@ static int	ft_get_max_bits(t_stack *stack)
 	return (max_bits);
 }
 
+/* Checks if the stack is already sorted to stop early */
 static int	ft_is_sorted(t_stack *stack)
 {
 	if (!stack)
@@ -37,6 +39,7 @@ static int	ft_is_sorted(t_stack *stack)
 	return (1);
 }
 
+/* Radix sort implementation using bitwise operations for large stacks */
 void	ft_sort_complex(t_stack **stack_a, t_stack **stack_b)
 {
 	int	max_bits;

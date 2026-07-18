@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+/* Calculates the percentage of unsorted pairs to pick the best strategy */
 double	ft_compute_disorder(t_stack *stack)
 {
 	t_stack	*current;

@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+/* Finds the node with the highest value in the stack */
 static	int	ft_find_highest(t_stack *stack)
 {
 	int	highest;
@@ -26,6 +27,7 @@ static	int	ft_find_highest(t_stack *stack)
 	return (highest);
 }
 
+/* Finds the current position (index in the list) of the minimum value */
 int	ft_get_min_i(t_stack *stack, int min_value)
 {
 	int	i;
@@ -41,6 +43,7 @@ int	ft_get_min_i(t_stack *stack, int min_value)
 	return (i);
 }
 
+/* Finds the node with the lowest value in the stack */
 int	ft_find_lowest(t_stack *stack)
 {
 	int	lowest;
@@ -55,6 +58,7 @@ int	ft_find_lowest(t_stack *stack)
 	return (lowest);
 }
 
+/* Hardcoded algorithm to sort up to three nodes with maximum efficiency */
 void	ft_sort_three(t_stack **stack_a)
 {
 	int	highest;
@@ -70,6 +74,7 @@ void	ft_sort_three(t_stack **stack_a)
 		sa(stack_a);
 }
 
+/* Routes the program to the correct sorting algorithm based on the mode */
 void	execute_strategy(int strat, t_stack **a, t_stack **b)
 {
 	if (strat == 1)

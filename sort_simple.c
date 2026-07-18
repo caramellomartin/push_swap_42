@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+/* Pushes the smallest elements to Stack B until only three remain in Stack A */
 static void	ft_push_minimums(t_stack **stack_a, t_stack **stack_b)
 {
 	int	lowest;
@@ -34,6 +35,7 @@ static void	ft_push_minimums(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
+/* Selection-sort approach, pushing minimums to Stack B for small lists */
 void	ft_sort_simple(t_stack **stack_a, t_stack **stack_b)
 {
 	int	size;

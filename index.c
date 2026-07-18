@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+/* Maps raw numbers to normalized 0-based indices for easier sorting */
 void	ft_assign_index(t_stack *stack)
 {
 	t_stack	*current;
