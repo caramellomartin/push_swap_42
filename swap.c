@@ -29,7 +29,7 @@ static void	ft_swap_nodes(t_stack **stack)
 void	sa(t_stack **stack_a)
 {
 	ft_swap_nodes(stack_a);
-	write(1, "sa\n", 3);
+	ft_print_move("sa\n");
 	ft_get_bench()->sa++;
 	ft_get_bench()->total++;
 }
@@ -37,7 +37,7 @@ void	sa(t_stack **stack_a)
 void	sb(t_stack **stack_b)
 {
 	ft_swap_nodes(stack_b);
-	write(1, "sb\n", 3);
+	ft_print_move("sb\n");
 	ft_get_bench()->sb++;
 	ft_get_bench()->total++;
 }
@@ -46,7 +46,7 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_swap_nodes(stack_a);
 	ft_swap_nodes(stack_b);
-	write(1, "ss\n", 3);
+	ft_print_move("ss\n");
 	ft_get_bench()->ss++;
 	ft_get_bench()->total++;
 }

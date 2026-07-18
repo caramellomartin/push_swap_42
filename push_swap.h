@@ -47,6 +47,7 @@ typedef struct s_bench
 	int	rrr;
 	int	is_adaptive;
 	int	total;
+	int	mode;
 }	t_bench;
 
 /* --- utils.c --- */
@@ -59,6 +60,7 @@ void	ft_error(void);
 void	ft_putstr_err(char *str);
 void	ft_putnbr_err(int n);
 void	ft_putfloat_err(double disorder);
+void	ft_print_move(char *move);
 
 /* --- bench.c --- */
 t_bench	*ft_get_bench(void);
